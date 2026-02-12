@@ -3,16 +3,25 @@ import List from "./List";
 import data from "./data";
 
 function App() {
-  const[people,setpeople] = useState(data)
+  const[people,setPeople] = useState(data)
   return(
-     <main>
+      <main>
           <section className="container">
             <h3>{people.length}birthdays today </h3>
             <List people ={people}/>
-            <button onClick={()=>console.log("youclicked me")}>Clear all</button> 
+            <button 
+                onClick={()=>
+                  people.length ===0 ? setPeople(data): setPeople([])
+              }
+            >
+              {length.people===0? "Refresh" :"clear All"}
+            </button>
+  
+
+           
           </section>  
-        </main>
-  );
+      </main>
+  )
           
 }
 export default App;
